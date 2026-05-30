@@ -51,7 +51,7 @@ pong-arena/
 1. Clone:
 
 ```
-git clone https://github.com/gabr1elstack/pong-arena-system.git
+git clone https://github.com/gabrielinfosec/pong-arena-system.git
 ```
 
 2. Entre na pasta:
@@ -106,7 +106,7 @@ Sem isso, o resto quebra.
 
 ## 👨‍💻 Autor
 
-Gabriel (gabr1elstack)
+Gabriel (gabrielinfosec)
 
 ---
 
