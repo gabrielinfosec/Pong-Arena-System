@@ -1,113 +1,131 @@
 # 🎮 Pong Arena System
 
-Um jogo de ping pong feito em Python, direto ao ponto. Sem firula. Aqui a ideia foi pegar algo simples e fazer bem feito: organizar código, cuidar dos detalhes e fazer tudo funcionar do jeito certo.
+Um sistema de Pong multiplayer local em Python. Autenticação de jogadores, ranking persistente, histórico de matches e tudo integrado com SQLite.
 
 ---
 
-## 💡 Sobre o projeto
+## ⚙️ Funcionalidades
 
-Esse projeto junta duas coisas:
-
-* A parte visual, com interface rodando em tempo real
-* A parte “por trás”, cuidando dos dados e da lógica
-
-Enquanto o jogo roda, tem código trabalhando quieto: criando pasta, salvando jogador, registrando pontuação. Nada mágico, só código bem feito fazendo o serviço.
-
----
-
-## ⚙️ O que rola no sistema
-
-* Login para dois jogadores
-* Criação automática da pasta de dados
-* Conexão com banco SQLite
-* Ranking salvo e atualizado
-* Jogo rodando em tempo real com pontuação até 10
+- ✅ **Autenticação**: Login com username e senha (bcrypt)
+- ✅ **Ranking Global**: Placar persistente em SQLite
+- ✅ **Histórico de Matches**: Registro de todos os jogos
+- ✅ **Exportação**: Dados em CSV para análise
+- ✅ **Suporte Joystick**: Compatível com controles
+- ✅ **Multiplayer Local**: Dois jogadores, mesma tela
+- ✅ **Estrutura Modular**: Código organizado e testável
 
 ---
 
 ## 🛠️ Tecnologias
 
-* Python
-* Pygame
-* SQLite
+- **Python** 3.8+
+- **Pygame** - Renderização e game loop
+- **SQLite** - Persistência de dados
+- **bcrypt** - Hash seguro de senhas
 
 ---
 
-## 📂 Estrutura
+## 📦 Instalação
 
-```
-pong-arena/
-│
-├── pingpong.py
-├── criar_pong.py
-│
-├── dados/
-│   └── jogadores.db
-```
----
+### 1. Clone o repositório
 
-## ▶️ Como rodar
-
-1. Clone:
-
-```
-git clone https://github.com/gabrielinfosec/pong-arena-system.git
+```bash
+git clone https://github.com/gabrielinfosec/Pong-Arena-System.git
+cd Pong-Arena-System
 ```
 
-2. Entre na pasta:
+### 2. Instale as dependências
 
-```
-cd pong-arena-system
-```
-
-3. Instale:
-
-```
-pip install pygame
+```bash
+pip install -r requirements.txt
 ```
 
-4. Execute:
+### 3. Execute
 
-```
-python main.py
+```bash
+python pingpong.py
 ```
 
 ---
 
-## 🧠 Na prática
+## 🎮 Como Jogar
 
-Tem coisa simples aqui que muita gente pula, mas faz diferença:
+### Controles
 
-```python
-if not os.path.exists(PASTA_DADOS):
-    os.makedirs(PASTA_DADOS)
+**Jogador 1 (Esquerda)**
+- `W` - Mover para cima
+- `S` - Mover para baixo
 
-def conectar():
-    conn = sqlite3.connect(CAMINHO_DB)
-```
+**Jogador 2 (Direita)**
+- `UP ARROW` - Mover para cima
+- `DOWN ARROW` - Mover para baixo
 
-Isso aqui é o básico bem feito:
+**Geral**
+- `ESC` - Sair do jogo
 
-* garante que a pasta existe
-* garante que o banco abre certo
-
-Sem isso, o resto quebra.
+### Joystick
+Se conectar um joystick, os controles serão automaticamente mapeados.
 
 ---
 
-## 📌 Próximos passos
+## 📂 Estrutura do Projeto
 
-* Modo contra IA
-* Interface mais limpa
-* Sons durante a partida
-* Histórico de jogos
+```
+Pong-Arena-System/
+├── pingpong.py           # Arquivo principal
+├── criar_pong.py         # Setup inicial
+├── requirements.txt      # Dependências
+├── README.md
+├── .gitignore
+└── dados/
+    └── jogadores.db      # Banco de dados (criado automaticamente)
+```
+
+---
+
+## 🚀 Primeiro Uso
+
+1. Execute o programa
+2. Crie sua conta (username + senha)
+3. Selecione outro jogador para começar
+4. Jogue até 10 pontos para vencer
+
+Os dados são salvos automaticamente no SQLite.
+
+---
+
+## 💾 Dados
+
+Os seguintes dados são persistidos:
+
+- **Jogadores**: ID, username, hash de senha, data de criação
+- **Matches**: ID, jogadores, placar, data
+- **Ranking**: Vitórias, derrotas, taxa de vitória
+
+---
+
+## 📌 Próximas Features
+
+- [ ] Modo contra IA
+- [ ] Interface melhorada
+- [ ] Sons e efeitos
+- [ ] Estatísticas avançadas
+- [ ] Modo online
 
 ---
 
 ## 👨‍💻 Autor
 
-Gabriel (gabrielinfosec)
+**Gabriel** - [@gabrielinfosec](https://github.com/gabrielinfosec)
+
+Estudante de Análise e Desenvolvimento de Sistemas | Focado em Cybersecurity
 
 ---
 
-Projeto feito na prática, sem pular etapa. Testando, ajustando e repetindo até ficar redondo.
+## 📄 Licença
+
+Este projeto está aberto para uso e aprendizado.
+
+---
+
+**Feedback?** Abra uma issue ou faça um pull request.
